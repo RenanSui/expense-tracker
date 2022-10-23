@@ -18,7 +18,12 @@ const ReturnFormData = () => {
         note: note,
         type: type,
         date: date,
+        id: createRandomId(),
         tag: tag,
     };
+};
+const createRandomId = () => {
+    const id = Date.now();
+    return id;
 };
 export default ReturnFormData;

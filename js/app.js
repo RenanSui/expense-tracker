@@ -6,18 +6,24 @@ import RENDER_Totals from './renderTotals.js';
 const myForm = document.querySelector('#myForm');
 const showFormBtn = document.querySelector('#showFormBtn');
 const hideFormBtn = document.querySelector('#hideFormBtn');
+const historyContainer = document.querySelector('#history');
 RENDER_History();
 RENDER_Totals();
 myForm.addEventListener('submit', (e) => {
     e.preventDefault();
-    const { title, amountNumber, note, type, date, tag } = getFormData('form');
-    const NEW_Transaction = new Transaction(title, amountNumber, note, type, date, tag);
+    const { title, amountNumber, note, type, date, id, tag } = getFormData('form');
+    const NEW_Transaction = new Transaction(title, amountNumber, note, type, date, id, tag);
     NEW_Transaction.printFormat();
     NEW_Transaction.NewTransaction();
     RESET_Form();
     RENDER_History();
     RENDER_Totals();
     SHOW_HIDE_FormBtn('hide');
+});
+historyContainer.addEventListener('click', (e) => {
+    const eventTarget = e.target;
+    const parentElement1 = eventTarget;
+    console.log(parentElement1.id);
 });
 showFormBtn.addEventListener('click', () => {
     SHOW_HIDE_FormBtn('show');

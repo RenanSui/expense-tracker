@@ -1,14 +1,14 @@
 import formatDate from './formatDate.js';
 import getLocalStorage from './getLocalStorage.js';
-const AddNewTransaction = (title, amountNumber, note, type, date, tag) => {
+const AddNewTransaction = (title, amountNumber, note, type, date, id, tag) => {
     const history = getLocalStorage();
     const transactionData = {
-        id: createRandomId(),
         title: title,
         amountNumber: amountNumber,
         note: note,
         type: type,
         date: formatDate(date),
+        id: id,
         tag: tag,
     };
     history.unshift(transactionData);

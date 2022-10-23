@@ -11,6 +11,7 @@ const ReturnEditFormData = () => {
     const note = myFormNote.value;
     const type = myFormType.value;
     const date = myFormDate.value;
+    const id = parseInt(myFormDate.value);
     const tag = myFormTag.value;
     return {
         title: title,
@@ -18,6 +19,7 @@ const ReturnEditFormData = () => {
         note: note,
         type: type,
         date: date,
+        id: id,
         tag: tag,
     };
 };

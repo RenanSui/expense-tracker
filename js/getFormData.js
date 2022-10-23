@@ -9,13 +9,14 @@ const getFormData = (action) => {
     if (action !== 'form' && action !== 'editForm') {
         console.log('return data not specified for forms');
     }
-    const { title, amountNumber, note, type, date, tag } = formData;
+    const { title, amountNumber, note, type, date, id, tag, } = formData;
     return {
         title: title,
         amountNumber: amountNumber,
         note: note,
         type: type,
         date: date,
+        id: id,
         tag: tag,
     };
 };

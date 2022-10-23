@@ -10,8 +10,8 @@ RENDER_History();
 RENDER_Totals();
 myForm.addEventListener('submit', (e) => {
     e.preventDefault();
-    const { title, amountNumber, note, type, date } = getFormData('form');
-    const NEW_Transaction = new Transaction(title, amountNumber, note, type, date);
+    const { title, amountNumber, note, type, date, tag } = getFormData('form');
+    const NEW_Transaction = new Transaction(title, amountNumber, note, type, date, tag);
     NEW_Transaction.printFormat();
     NEW_Transaction.NewTransaction();
     RESET_Form();

@@ -520,6 +520,14 @@ header .nav-title {
   left: 60%;
 }
 
+.hide {
+  animation: slideOut 1s forwards;
+}
+
+.show {
+  animation: slideIn 1s forwards;
+}
+
 @keyframes slideIn {
   0% {
     opacity: 0;
@@ -636,6 +644,10 @@ header .nav-title {
 
 .mb-3 {
   margin-bottom: 2rem;
+}
+
+.display-n {
+  display: none;
 }
 
 .display-f {

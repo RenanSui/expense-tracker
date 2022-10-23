@@ -4,6 +4,7 @@ import { RESET_Form } from './ResetForm.js';
 const myForm = document.querySelector('#myForm');
 const showFormBtn = document.querySelector('#showFormBtn');
 const hideFormBtn = document.querySelector('#hideFormBtn');
+console.log('funcionando');
 myForm.addEventListener('submit', (e) => {
     e.preventDefault();
     const { title, amountNumber, note, type, date, } = getFormData('form');

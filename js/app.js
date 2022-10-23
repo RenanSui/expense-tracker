@@ -2,10 +2,12 @@ import Transaction from './classes/Transaction.js';
 import getFormData from './getFormData.js';
 import { RESET_Form } from './ResetForm.js';
 import RENDER_History from './renderHistory.js';
+import RENDER_Totals from './renderTotals.js';
 const myForm = document.querySelector('#myForm');
 const showFormBtn = document.querySelector('#showFormBtn');
 const hideFormBtn = document.querySelector('#hideFormBtn');
 RENDER_History();
+RENDER_Totals();
 myForm.addEventListener('submit', (e) => {
     e.preventDefault();
     const { title, amountNumber, note, type, date } = getFormData('form');
@@ -14,6 +16,7 @@ myForm.addEventListener('submit', (e) => {
     NEW_Transaction.NewTransaction();
     RESET_Form();
     RENDER_History();
+    RENDER_Totals();
     SHOW_HIDE_FormBtn('hide');
 });
 showFormBtn.addEventListener('click', () => {

@@ -1,4 +1,5 @@
-import AddNewTransaction from '../AddNewTransaction.js';
+import { AddNewTransaction } from '../AddNewTransaction.js';
+import { EditOldTransaction } from '../EditOldTransaction.js';
 export default class Transaction {
     constructor(title, amountNumber, note, type, date, id, tag) {
         this.title = title;
@@ -16,9 +17,13 @@ export default class Transaction {
 	    ${this.note},
 	    ${this.type},
 	    ${this.date},
+		${this.id},
 		${this.tag}`);
     }
     NewTransaction() {
         AddNewTransaction(this.title, this.amountNumber, this.note, this.type, this.date, this.id, this.tag);
+    }
+    EditTransaction() {
+        EditOldTransaction(this.title, this.amountNumber, this.note, this.type, this.date, this.id, this.tag);
     }
 }

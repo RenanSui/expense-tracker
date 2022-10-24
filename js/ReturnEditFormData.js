@@ -1,4 +1,4 @@
-const myForm = document.querySelector('#myForm');
+const myForm = document.querySelector('#myForm-Edit');
 const myFormTitle = myForm.querySelector('#myForm-title');
 const myFormAmount = myForm.querySelector('#myForm-amount');
 const myFormType = myForm.querySelector('#myForm-type');

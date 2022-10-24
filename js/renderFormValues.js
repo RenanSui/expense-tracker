@@ -1,0 +1,20 @@
+import { reverseFormatDate } from './formatDate.js';
+import { getValuesById } from './getLocalStorage.js';
+const myForm = document.querySelector('#myForm-Edit');
+const myFormTitle = myForm.querySelector('#myForm-title');
+const myFormAmount = myForm.querySelector('#myForm-amount');
+const myFormType = myForm.querySelector('#myForm-type');
+const myFormTag = myForm.querySelector('#myForm-tag');
+const myFormDate = myForm.querySelector('#myForm-date');
+const myFormNote = myForm.querySelector('#myForm-note');
+export const renderFormValues = (id) => {
+    const values = getValuesById(id);
+    const { title, amountNumber, note, type, date, id: currentId, tag, } = values[0];
+    const dateWithoutFormat = reverseFormatDate(date);
+    myFormTitle.value = title;
+    myFormAmount.value = amountNumber;
+    myFormType.value = type;
+    myFormTag.value = tag;
+    myFormDate.value = dateWithoutFormat;
+    myFormNote.value = note;
+};

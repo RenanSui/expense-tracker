@@ -3,6 +3,7 @@ import getFormData from './getFormData.js';
 import { RESET_Form, RESET_EditForm } from './ResetForm.js';
 import RENDER_History from './renderHistory.js';
 import RENDER_Totals from './renderTotals.js';
+import { RENDER_Details } from './renderDetails.js';
 import { SHOW_HIDE_Form, SHOW_HIDE_Details, SHOW_HIDE_Edit, } from './Show_Hide_Functions.js';
 import { AddNewId_LocalStorage, getClickedElementId, } from './AddNewTransaction.js';
 import { getId_LocalStorage } from './getLocalStorage.js';
@@ -19,8 +20,9 @@ RENDER_History();
 RENDER_Totals();
 myForm.addEventListener('submit', (e) => {
     e.preventDefault();
-    const { title, amountNumber, note, type, date, id, tag } = getFormData('form');
-    const NEW_Transaction = new Transaction(title, amountNumber, note, type, date, id, tag);
+    let currentId = 0;
+    const { title, amountNumber, note, type, date, id, tag, createdAt } = getFormData('form', currentId);
+    const NEW_Transaction = new Transaction(title, amountNumber, note, type, date, id, tag, createdAt);
     NEW_Transaction.printFormat();
     NEW_Transaction.NewTransaction();
     RESET_Form();
@@ -31,8 +33,8 @@ myForm.addEventListener('submit', (e) => {
 myFormEdit.addEventListener('submit', (e) => {
     e.preventDefault();
     const currentId = parseInt(getId_LocalStorage());
-    let { title, amountNumber, note, type, date, id, tag } = getFormData('editForm');
-    const NEW_Transaction = new Transaction(title, amountNumber, note, type, date, (id = currentId), tag);
+    let { title, amountNumber, note, type, date, id, tag, createdAt } = getFormData('editForm', currentId);
+    const NEW_Transaction = new Transaction(title, amountNumber, note, type, date, id, tag, createdAt);
     NEW_Transaction.printFormat();
     NEW_Transaction.EditTransaction();
     SHOW_HIDE_Edit('hide');
@@ -50,6 +52,7 @@ hideEditFormBtn.addEventListener('click', () => {
 historyContainer.addEventListener('click', (e) => {
     const id = getClickedElementId(e);
     console.log(id);
+    RENDER_Details(parseInt(id));
     AddNewId_LocalStorage(id);
     SHOW_HIDE_Details('show');
 });

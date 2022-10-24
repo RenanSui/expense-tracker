@@ -53,4 +53,30 @@ export const reverseFormatDate = (date) => {
     if (getMonth === 'Dec')
         return `12/${getDay}/${getYear}`;
 };
+export const formatFullDate = () => {
+    const date = new Date();
+    let seconds = date.getSeconds().toString();
+    let minutes = date.getMinutes().toString();
+    let hour = date.getHours();
+    let year = date.getFullYear();
+    let month = date.getMonth();
+    let day = date.getDate().toString();
+    const newMonth = getMonth(month);
+    let meridiem = '';
+    if (hour < 12)
+        meridiem = 'AM';
+    if (hour >= 12)
+        meridiem = 'PM';
+    minutes = zeroAfter(minutes);
+    seconds = zeroAfter(seconds);
+    day = zeroAfter(day);
+    const FullDate = `${newMonth} ${day}, ${year} ${hour}:${minutes}:${seconds} ${meridiem}`;
+    return FullDate;
+};
+const zeroAfter = (number) => {
+    let date = number;
+    if (date[1] === undefined)
+        date = '0' + date;
+    return date;
+};
 export default formatDate;

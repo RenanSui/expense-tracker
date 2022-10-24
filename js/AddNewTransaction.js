@@ -1,15 +1,16 @@
 import formatDate from './formatDate.js';
 import getLocalStorage from './getLocalStorage.js';
-export const AddNewTransaction = (title, amountNumber, note, type, date, id, tag) => {
+export const AddNewTransaction = (title, amountNumber, note, type, date, id, tag, createdAt) => {
     const history = getLocalStorage();
     const transactionData = {
-        id: createRandomId(),
+        id: id,
         title: title,
         amountNumber: amountNumber,
         date: formatDate(date),
         type: type,
         tag: tag,
         note: note,
+        createdAt: createdAt
     };
     history.unshift(transactionData);
     localStorage.setItem('history', JSON.stringify(history));

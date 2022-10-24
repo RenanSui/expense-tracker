@@ -1,7 +1,7 @@
 import { AddNewTransaction } from '../AddNewTransaction.js';
 import { EditOldTransaction } from '../EditOldTransaction.js';
 export default class Transaction {
-    constructor(title, amountNumber, note, type, date, id, tag) {
+    constructor(title, amountNumber, note, type, date, id, tag, createdAt) {
         this.title = title;
         this.amountNumber = amountNumber;
         this.note = note;
@@ -9,6 +9,7 @@ export default class Transaction {
         this.date = date;
         this.id = id;
         this.tag = tag;
+        this.createdAt = createdAt;
     }
     printFormat() {
         console.log(`
@@ -18,12 +19,13 @@ export default class Transaction {
 	    ${this.type},
 	    ${this.date},
 		${this.id},
-		${this.tag}`);
+		${this.tag},
+		${this.createdAt}`);
     }
     NewTransaction() {
-        AddNewTransaction(this.title, this.amountNumber, this.note, this.type, this.date, this.id, this.tag);
+        AddNewTransaction(this.title, this.amountNumber, this.note, this.type, this.date, this.id, this.tag, this.createdAt);
     }
     EditTransaction() {
-        EditOldTransaction(this.title, this.amountNumber, this.note, this.type, this.date, this.id, this.tag);
+        EditOldTransaction(this.title, this.amountNumber, this.note, this.type, this.date, this.id, this.tag, this.createdAt);
     }
 }

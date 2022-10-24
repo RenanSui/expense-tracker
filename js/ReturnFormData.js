@@ -1,3 +1,4 @@
+import { formatFullDate } from './formatDate.js';
 const myForm = document.querySelector('#myForm');
 const myFormTitle = myForm.querySelector('#myForm-title');
 const myFormAmount = myForm.querySelector('#myForm-amount');
@@ -12,6 +13,7 @@ const ReturnFormData = () => {
     const type = myFormType.value;
     const date = myFormDate.value;
     const tag = myFormTag.value;
+    const createdAt = formatFullDate();
     return {
         title: title,
         amountNumber: amountNumber,
@@ -20,6 +22,7 @@ const ReturnFormData = () => {
         date: date,
         id: createRandomId(),
         tag: tag,
+        createdAt: createdAt,
     };
 };
 const createRandomId = () => {

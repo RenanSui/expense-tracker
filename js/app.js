@@ -21,7 +21,7 @@ RENDER_Totals();
 myForm.addEventListener('submit', (e) => {
     e.preventDefault();
     let currentId = 0;
-    const { title, amountNumber, note, type, date, id, tag, createdAt } = getFormData('form', currentId);
+    const { title, amountNumber, note, type, date, id, tag, createdAt, } = getFormData('form', currentId);
     const NEW_Transaction = new Transaction(title, amountNumber, note, type, date, id, tag, createdAt);
     NEW_Transaction.printFormat();
     NEW_Transaction.NewTransaction();
@@ -33,10 +33,12 @@ myForm.addEventListener('submit', (e) => {
 myFormEdit.addEventListener('submit', (e) => {
     e.preventDefault();
     const currentId = parseInt(getId_LocalStorage());
-    let { title, amountNumber, note, type, date, id, tag, createdAt } = getFormData('editForm', currentId);
+    let { title, amountNumber, note, type, date, id, tag, createdAt, } = getFormData('editForm', currentId);
     const NEW_Transaction = new Transaction(title, amountNumber, note, type, date, id, tag, createdAt);
     NEW_Transaction.printFormat();
     NEW_Transaction.EditTransaction();
+    RENDER_History();
+    RENDER_Totals();
     SHOW_HIDE_Edit('hide');
 });
 showEditBtn.addEventListener('click', () => {

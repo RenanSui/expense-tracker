@@ -8,6 +8,8 @@ import { SHOW_HIDE_Form, SHOW_HIDE_Details, SHOW_HIDE_Edit, } from './Show_Hide_
 import { AddNewId_LocalStorage, getClickedElementId, } from './AddNewTransaction.js';
 import { getId_LocalStorage } from './getLocalStorage.js';
 import { renderFormValues } from './renderFormValues.js';
+import { DeleteForms } from './DeleteForm.js';
+import { renderFilteredHistory } from './renderFilteredHistory.js';
 const myForm = document.querySelector('#myForm');
 const showFormBtn = document.querySelector('#showFormBtn');
 const hideFormBtn = document.querySelector('#hideFormBtn');
@@ -16,6 +18,10 @@ const hideDetailsBtn = document.querySelector('#hideDetailsBtn');
 const myFormEdit = document.querySelector('#myForm-Edit');
 const showEditBtn = document.querySelector('#showEditBtn');
 const hideEditFormBtn = document.querySelector('#hideEditFormBtn');
+const deleteBtn = document.querySelector('#deleteBtn');
+const totalBalance = document.querySelector('#totalBalance');
+const totalIncome = document.querySelector('#totalIncome');
+const totalExpense = document.querySelector('#totalExpense');
 RENDER_History();
 RENDER_Totals();
 myForm.addEventListener('submit', (e) => {
@@ -39,7 +45,17 @@ myFormEdit.addEventListener('submit', (e) => {
     NEW_Transaction.EditTransaction();
     RENDER_History();
     RENDER_Totals();
+    AddNewId_LocalStorage('0');
     SHOW_HIDE_Edit('hide');
+});
+deleteBtn.addEventListener('click', (e) => {
+    const currentId = parseInt(getId_LocalStorage());
+    console.log('Delete id: ' + currentId);
+    DeleteForms(currentId);
+    RENDER_History();
+    RENDER_Totals();
+    AddNewId_LocalStorage('0');
+    SHOW_HIDE_Details('hide');
 });
 showEditBtn.addEventListener('click', () => {
     const currentId = parseInt(getId_LocalStorage());
@@ -67,4 +83,13 @@ showFormBtn.addEventListener('click', () => {
 });
 hideFormBtn.addEventListener('click', () => {
     SHOW_HIDE_Form('hide');
+});
+totalBalance.addEventListener('click', () => {
+    renderFilteredHistory('Balance');
+});
+totalIncome.addEventListener('click', () => {
+    renderFilteredHistory('Income');
+});
+totalExpense.addEventListener('click', () => {
+    renderFilteredHistory('Expense');
 });

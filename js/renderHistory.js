@@ -2,6 +2,9 @@ import getLocalStorage from './getLocalStorage.js';
 const history = document.querySelector('#history');
 const RENDER_History = () => {
     const currentHistory = getLocalStorage();
+    defaultRender(currentHistory);
+};
+export const defaultRender = (currentHistory) => {
     let counter = 0;
     let newHistory = currentHistory
         .map(() => {

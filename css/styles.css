@@ -31,6 +31,53 @@ body {
   overflow-x: hidden;
 }
 
+.containerModal {
+  pointer-events: none;
+  animation: modalOut 1s backwards;
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  opacity: 0;
+  z-index: 3;
+  background-color: rgb(0, 0, 0);
+}
+
+.modal {
+  z-index: 3;
+  animation: modalIn 1s forwards;
+  background-color: rgb(0, 0, 0);
+}
+
+@keyframes modalIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0.8;
+  }
+}
+@keyframes modalOut {
+  0% {
+    opacity: 0.8;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+.containerTitle .recentTitle {
+  margin-left: 24px;
+}
+
+@media (min-width: 800px) {
+  .containerTitle {
+    position: relative;
+  }
+  .containerTitle .position-circle-plus {
+    position: absolute;
+    top: -20px;
+    right: 24px;
+  }
+}
 /****header and nav****/
 header .nav-title {
   font-size: clamp(1rem, -0.4545rem + 7.2727vw, 1.25rem);
@@ -139,7 +186,7 @@ header .nav-title {
 
 .container {
   width: 100%;
-  max-width: 1280px;
+  max-width: 800px;
   margin: 0 auto;
   padding: 0 0;
   box-sizing: border-box;
@@ -397,7 +444,7 @@ header .nav-title {
 }
 
 .myForm {
-  width: 100%;
+  width: 100vw;
   overflow-x: hidden;
   position: fixed;
   top: 0;
@@ -571,6 +618,7 @@ header .nav-title {
   left: 0;
   right: 0;
   transform: translateX(-100%);
+  z-index: 3;
   opacity: 1;
 }
 .details .details-nav {

@@ -3,13 +3,13 @@ import getLocalStorage from './getLocalStorage.js';
 const AddNewTransaction = (title, amountNumber, note, type, date, id, tag) => {
     const history = getLocalStorage();
     const transactionData = {
+        id: createRandomId(),
         title: title,
         amountNumber: amountNumber,
-        note: note,
-        type: type,
         date: formatDate(date),
-        id: id,
+        type: type,
         tag: tag,
+        note: note,
     };
     history.unshift(transactionData);
     localStorage.setItem('history', JSON.stringify(history));

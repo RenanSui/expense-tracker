@@ -13,6 +13,7 @@ import { renderFilteredHistory } from './renderFilteredHistory.js';
 const myForm = document.querySelector('#myForm');
 const showFormBtn = document.querySelector('#showFormBtn');
 const hideFormBtn = document.querySelector('#hideFormBtn');
+const myFormDate = document.querySelector('#myForm-date');
 const historyContainer = document.querySelector('#history');
 const hideDetailsBtn = document.querySelector('#hideDetailsBtn');
 const myFormEdit = document.querySelector('#myForm-Edit');

@@ -4,6 +4,11 @@ const detailsContainer = document.querySelector('#details');
 const myFormEdit = document.querySelector('#myForm-Edit');
 const modal = document.querySelector('#modal');
 const bodyElement = document.querySelector('#body');
+modal.addEventListener('click', () => {
+    SHOW_HIDE_Form('hide');
+    SHOW_HIDE_Edit('hide');
+    SHOW_HIDE_Details('hide');
+});
 export const SHOW_HIDE_Form = (action) => {
     const form = myForm.classList;
     const body = bodyElement.classList;

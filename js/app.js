@@ -23,6 +23,11 @@ const deleteBtn = document.querySelector('#deleteBtn');
 const totalBalance = document.querySelector('#totalBalance');
 const totalIncome = document.querySelector('#totalIncome');
 const totalExpense = document.querySelector('#totalExpense');
+const dropdownMenu = document.querySelector('.nav-dropdown');
+const headerTitle = document.querySelector('.header-title');
+const dropdownOverall = document.querySelector('.dropdown-overall');
+const dropdownIncome = document.querySelector('.dropdown-income');
+const dropdownExpense = document.querySelector('.dropdown-expense');
 RENDER_History();
 RENDER_Totals();
 myForm.addEventListener('submit', (e) => {
@@ -87,10 +92,52 @@ hideFormBtn.addEventListener('click', () => {
 });
 totalBalance.addEventListener('click', () => {
     renderFilteredHistory('Balance');
+    headerTitle.innerHTML = `Overall
+	<span>
+		<div class="chevron-down mr-auto ml-1"></div>
+	</span>`;
 });
 totalIncome.addEventListener('click', () => {
     renderFilteredHistory('Income');
+    headerTitle.innerHTML = `Income
+	<span>
+		<div class="chevron-down mr-auto ml-1"></div>
+	</span>`;
 });
 totalExpense.addEventListener('click', () => {
+    renderFilteredHistory('Expense');
+    headerTitle.innerHTML = `Expenses
+	<span>
+		<div class="chevron-down mr-auto ml-1"></div>
+	</span>`;
+});
+headerTitle.addEventListener('click', () => {
+    dropdownMenu.classList.toggle('nav-dropdown-show');
+});
+dropdownOverall.addEventListener('click', () => {
+    console.log('overall');
+    dropdownMenu.classList.remove('nav-dropdown-show');
+    headerTitle.innerHTML = `Overall
+	<span>
+		<div class="chevron-down mr-auto ml-1"></div>
+	</span>`;
+    renderFilteredHistory('Balance');
+});
+dropdownIncome.addEventListener('click', () => {
+    console.log('income');
+    dropdownMenu.classList.remove('nav-dropdown-show');
+    headerTitle.innerHTML = `Income
+	<span>
+		<div class="chevron-down mr-auto ml-1"></div>
+	</span>`;
+    renderFilteredHistory('Income');
+});
+dropdownExpense.addEventListener('click', () => {
+    console.log('expense');
+    dropdownMenu.classList.remove('nav-dropdown-show');
+    headerTitle.innerHTML = `Expenses
+	<span>
+		<div class="chevron-down mr-auto ml-1"></div>
+	</span>`;
     renderFilteredHistory('Expense');
 });

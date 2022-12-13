@@ -234,6 +234,39 @@ header .nav-title {
     left: 60px;
   }
 }
+
+.nav-dropdown {
+  background-color: rgba(26, 25, 30, 0.1607843137);
+  backdrop-filter: blur(16px);
+  position: absolute;
+  flex-grow: 1;
+  flex-direction: column;
+  align-items: center;
+  top: 95px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2;
+  border-radius: 8px;
+  border: 1px solid rgb(55, 55, 55);
+  display: none;
+}
+.nav-dropdown h1 {
+  font-size: 20px;
+  width: 158px;
+  height: 80px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.nav-dropdown h1:hover {
+  background-color: rgba(84, 84, 84, 0.4235294118);
+}
+
+.dropdown-icon .chevron-down {
+  pointer-events: none;
+}
+
 .container {
   width: 100%;
   max-width: 800px;
@@ -379,7 +412,6 @@ header .nav-title {
 
 .navbar, .navbar-secondary {
   padding: 0.5rem 1rem;
-  box-shadow: 1px 3px 5px rgba(0, 0, 0, 0.1);
 }
 
 .navbar-secondary {

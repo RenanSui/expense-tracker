@@ -1,5 +1,5 @@
-import getLocalStorage from "./getLocalStorage.js";
-import { defaultRender } from "./renderHistory.js";
+import getLocalStorage from './getLocalStorage.js';
+import { defaultRender } from './renderHistory.js';
 export const renderFilteredHistory = (action) => {
     const currentHistory = getLocalStorage();
     let newHistory;
